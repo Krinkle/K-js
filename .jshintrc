@@ -1,0 +1,33 @@
+{
+	"predef": [
+		"K",
+		"QUnit"
+	],
+
+	"bitwise": true,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"plusplus": true,
+	"quotmark": "single",
+	"regexp": false,
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"trailing": true,
+
+	"smarttabs": true,
+
+	"node": true,
+
+	"nomen": true,
+	"onevar": true,
+	"white": true
+}

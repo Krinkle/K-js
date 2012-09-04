@@ -1,0 +1,34 @@
+{
+	"name": "K-js",
+	"version": "0.1.0",
+	"description": "K-js.",
+	"keywords": [
+		"Krinkle",
+		"library",
+		"util",
+		"utilities"
+	],
+	"homepage": "https://github.com/Krinkle/K-js",
+	"bugs": "https://github.com/Krinkle/K-js/issues",
+	"author": {
+		"name": "Timo Tijhof",
+		"web": "https://github.com/Krinkle"
+	},
+	"main": "./src/K.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/Krinkle/K-js.git"
+	},
+	"scripts": {
+		"test": "node test/node-index.js"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"qunit": "~0.5.8"
+	},
+	"licenses": [{
+		"type": "WTFPL",
+		"url": "http://sam.zoy.org/wtfpl/COPYING"
+	}]
+}
