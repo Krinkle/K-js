@@ -175,7 +175,7 @@
 		assert.equal(bar.eFn(), 'proto of Foo', 'inheritance is live');
 	});
 
-	QUnit.test('Object.clone', 2, function (assert) {
+	QUnit.test('Object.clone', 4, function (assert) {
 		var myfoo, myfooClone, expected;
 
 		function Foo(x) {
@@ -188,6 +188,9 @@
 
 		myfoo = new Foo(10);
 		myfooClone = K.Object.clone(myfoo);
+
+		assert.notStrictEqual(myfoo, myfooClone, 'clone is not equal when compared by reference');
+		assert.deepEqual(myfoo, myfooClone, 'clone is equal when recursively compared by value');
 
 		expected = {
 			x: 10,
