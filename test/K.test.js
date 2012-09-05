@@ -2,7 +2,7 @@
 	'use strict';
 	var hasOwn = Object.prototype.hasOwnProperty;
 
-	QUnit.module('K');
+	QUnit.module('K.Object');
 
 	function keys(o) {
 		var key,
@@ -27,7 +27,7 @@
 
 	});
 
-	QUnit.test('Object.create', 4, function (assert) {
+	QUnit.test('create', 4, function (assert) {
 		var foo, bar, fooKeys, barKeys;
 
 		foo = {
@@ -94,7 +94,7 @@
 		);
 	});
 
-	QUnit.test('Object.constructorInherit', 12, function (assert) {
+	QUnit.test('constructorInherit', 12, function (assert) {
 		var foo, bar;
 
 		function Foo() {
@@ -175,7 +175,49 @@
 		assert.equal(bar.eFn(), 'proto of Foo', 'inheritance is live');
 	});
 
-	QUnit.test('Object.clone', 4, function (assert) {
+	QUnit.test('constructorMixin', 4, function (assert) {
+		var quux;
+
+		function Foo() {}
+		Foo.prototype.aFn = function () {
+			return 'proto of Foo';
+		};
+
+		function Bar() {}
+		// constructorInherit makes the 'constructor'
+		// property an own property when it restores it.
+		K.Object.constructorInherit(Bar, Foo);
+		Bar.prototype.bFn = function () {
+			return 'mixin of Bar';
+		};
+
+		function Quux() {}
+		K.Object.constructorMixin(Quux, Bar);
+
+		assert.strictEqual(
+			Quux.prototype.aFn,
+			undefined,
+			'mixin inheritance is not copied over'
+		);
+
+		assert.strictEqual(
+			Quux.prototype.constructor,
+			Quux,
+			'constructor property skipped'
+		);
+
+		assert.strictEqual(
+			Quux.prototype.hasOwnProperty('bFn'),
+			true,
+			'mixin properties are now own properties, not inherited'
+		);
+
+		quux = new Quux();
+
+		assert.equal(quux.bFn(), 'mixin of Bar', 'mixin method works as expected');
+	});
+
+	QUnit.test('clone', 4, function (assert) {
 		var myfoo, myfooClone, expected;
 
 		function Foo(x) {
