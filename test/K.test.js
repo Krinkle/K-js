@@ -49,7 +49,7 @@
 		foo.c = 'c of foo';
 		foo.d = 'd of foo';
 
-		// Different that only one of each has
+		// Different property that only one of each has
 		foo.foo = true;
 		bar.bar = true;
 
