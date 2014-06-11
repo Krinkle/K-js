@@ -1,4 +1,5 @@
-# K-js [![Build Status](https://secure.travis-ci.org/Krinkle/K-js.png)](http://travis-ci.org/Krinkle/K-js)
+[![Build Status](https://travis-ci.org/Krinkle/K-js.svg?branch=master)](https://travis-ci.org/Krinkle/K-js)
+# K-js
 
 Miscellaneous javascript utilities.
 
